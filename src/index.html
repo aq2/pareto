@@ -6,49 +6,43 @@
   <link rel="stylesheet" href="styles.css">
   <script src='js/p5.min.js'></script>
   <script src='js/p5.dom.js'></script>
-
+  <script src='js/d3.min.js'></script>
+  
 </head>
 <body>
 
-<h1>open your console F12 to see results</h1>
+<h1>data viz exercise</h1>
+
+<!-- <form id='criteriaForm'>
+  <fieldset>
+    <legend>Choose your criteria</legend>
+    <div id='boxes'></div>
+    <input type='submit' onclick='getCriteria2()'>
+  </fieldset>
+</form> -->
+
+<!-- <form id='criteriaForm'> -->
+  <fieldset>
+    <legend>Choose your criteria</legend>
+    <p>Here's an example data entry</p>
+    <div id='example'>
+      <table id='exampleTable'>
+      </table>
+    </div>
+
+    <!-- <div id='boxes'></div> -->
+
+    <!-- <input type='submit' onclick='getCriteria2()'> -->
+  </fieldset>
+<!-- </form> -->
 
 
-<fieldset>
-  <legend>Choose your measurables</legend>
-  <div id='boxes'></div>
-  <input type='submit' onclick='getMeasurables()'>
-</fieldset>
-
-
-<!-- <form action=''>
-  choose data file
-  <input type='file' name='csvFile' accept='.csv' />
-  <input type='submit' onclick=alk('s') />
-  
-</form>
- -->
-<!-- 
- <input type="file" id="files" name="files[]" multiple />
- <output id="list"></output> -->
 
 
 
-<!-- <input type="file" id="csvFileInput" onchange="openFile(event)" accept=".csv"> -->
-<!-- <input type="file" id="csvFileInput" onchange="fileSubmit(this.files)" accept=".csv"> -->
+<script src="js/app3.js"></script>
 
 
-<script src="js/app.js"></script>
-
-
-<!-- this script can use fns from below -->
-<!-- must contain global var decs -->
-<!-- <script src="js/getCSV.js"></script> -->
-
-<!-- allegedy can use gets fns -->
-<!-- <script src="js/process.js"></script> -->
-
-<!-- third can use fns in files above -->
-<!-- <script src="js/third.js"></script> -->
 
 </body>
 </html>

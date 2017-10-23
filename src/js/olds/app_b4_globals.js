@@ -1,31 +1,42 @@
-getUnis("/data/gug2009.csv")
+getCSV("/data/miniergug2009.csv")
 
 
-function getUnis(csvFile) {
-  d3.csv(csvFile, function(d) {
-    return {
-      // todo replace by loping over d.categories
-      // low numbers are better
-      rank: +d.rank,    // need + to convert string into number
-      name: d.name.trim(),
-      nss: d.nss,
-      research: parseInt(d.research*100),
-      ratio: parseInt(d.ratio * 100),
-      spends: parseInt(d.spends * 100),
-      entry: parseInt(d.entry * 100),
-      completion: parseInt(d.completion * 100),
-      honours: parseInt(d.honours * 100),
-      prospects: parseInt(d.prospects * 100),
-      // extra attributes
-      dom_by: [],       // array of uni keys that dominates this
-      dominates: [],    // array of keys that this dominates
-      front: -1
-    }
-  }, (unis) => {
+function getCSV(csvFile) {
+  var rawData
+  d3.csv(csvFile, (d) => {
+    return { d }
+  }, (rawData) => {
+    console.log('data loaded')
     // console.table(unis)
-    findFronts(unis)
+    // console.table(rawData[0])
+    // console.log('sample', rawData[0])
+
+    // qq we now have array of data objects
+
+    // now we need to display sample data
+    choseCriteria(rawData[0])
+
+    // findFronts(unis)
+    // for (uni of unis) {
+    //   console.log(uni)
+    // }
   })
 }
+
+function choseCriteria(dataRow) {
+  console.log('example')
+  // console.log(dataRow)
+  var crit, prop, data
+  var data = dataRow['d']
+  console.log(data)
+  // console.log(dataRow['d'])
+  for (prop in data) {
+    console.log(prop)
+  }
+}
+
+
+
 
 function findFronts(unis) {
   // console.table(unis)
@@ -36,7 +47,7 @@ function findFronts(unis) {
 
   // main loop
 
-    var nextFront = getNextFrontByNonDomination(unis, categories)
+  var nextFront = getNextFrontByNonDomination(unis, categories)
 
   // while (unis.length > 0) {
   //   console.log("** front: " + front + ' **')
@@ -47,7 +58,7 @@ function findFronts(unis) {
   //   // unis = addToFrontandRemove(nextFront, front, unis)
   //   // front++
   // }
-  // console.table(unis)
+  console.table(unis)
 }
 
 
@@ -124,7 +135,7 @@ function getNextFrontByNonDomination(unis, categories) {
   // get it
   while (unis.length > 0) {
     var cattedUnis = dominator(unis, categories)
-    console.table(cattedUnis)
+    // console.table(cattedUnis)
     var nextFront = getParetoFront(cattedUnis)
     unis = addToFrontandRemove(nextFront, front, unis)
     front++
@@ -188,7 +199,7 @@ function getParetoFront(unis) {
       pareto.push(uni.rank)
     }
   }
-  console.table(pareto)
+  // console.table(pareto)
   return pareto
 }
 
@@ -276,7 +287,7 @@ function addToFrontandRemove(pareto, frontRank, unis) {
     // unis = newUnis // ??
   }
 
-  console.log('front:' + frontRank)
-  console.table(newUnis)
+  // console.log('front:' + frontRank)
+  // console.table(newUnis)
   return newUnis
 }

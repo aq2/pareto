@@ -1,29 +1,49 @@
+$blue = #4682b4
+$darkblue = #4a46b4
+$pink = #b44669
+$brown = #b45d46
+$green = #9AB446
+$gray = #112
+
 body
-  background steelblue
-  color white
+  background $blue
+  color $gray
 
-#chart div  
-  display inline-block;
-  background #bada55
-  width 20px
-  margin-right 3px
-
-#catDiv
-  background grey
-
-table {
-    border: 1px solid red;
-    // padding 10
-  }
-  td  {
-    border: 1px solid black;
-    padding: 5px;
-  }
-
-th {
-  background: green
+table {  
+  // width: 540px; 
+  border-collapse: collapse; 
+  border-spacing: 0;
 }
 
-caption {
-  padding 5px
+td, th { 
+  border: 1px solid $darkblue
+  // height 30px
+  padding 8px
+  text-align center
+}  
+
+th {
+  background $brown
+}
+
+legend {
+  color: $green
+}
+
+
+@-webkit-keyframes greenPulse {
+  from { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+  50% { background-color: #91bd09; -webkit-box-shadow: 0 0 18px #91bd09; }
+  to { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+}
+
+#rankHelp, #rankRow {
+  // -webkit-animation-name: greenPulse;
+  // -webkit-animation-duration: 2s;
+  // -webkit-animation-iteration-count: infinite;
+  background $pink
+}
+
+.hidden {
+  display none
 }
