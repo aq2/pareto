@@ -12,6 +12,7 @@
     "browser-sync": "^2.18.13",
     "eslint": "^4.3.0",
     "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
     "gulp-notify": "^3.0.0",
     "gulp-plumber": "^1.1.0",
     "gulp-stylus": "^2.6.0"
@@ -25,6 +26,8 @@
       "jasmine": true
     },
     "extends": "eslint:recommended",
+    "extends": "p5js",
+    "extends": "p5js/dom",
     "globals": {
       "d3": true
     },
@@ -36,8 +39,7 @@
       "semi": [
         "warn",
         "never"
-      ],
-      "no-console": 1
+      ]
     }
   }
 }
